@@ -1,0 +1,172 @@
+@charset "utf-8";
+#car {
+  background-color: #ccc;
+}
+#car .car-wrap {
+  width: 1180px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+#car .car-wrap .car_con .head {
+  width: 1180px;
+  height: 85px;
+}
+#car .car-wrap .car_con .head ul {
+  width: 1180px;
+  height: 45px;
+  background-color: #333;
+  color: #fff;
+}
+#car .car-wrap .car_con .head ul li {
+  float: left;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  height: 45px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(1) {
+  width: 207px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(2) {
+  width: 320px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(3) {
+  width: 140px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(4) {
+  width: 230px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(5) {
+  width: 140px;
+}
+#car .car-wrap .car_con .head ul li:nth-child(6) {
+  width: 140px;
+}
+#car .car-wrap .car_con .head p {
+  width: 1160px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #eee;
+  padding-left: 20px;
+}
+#car .car-wrap .car_con .pro {
+  width: 1180px;
+  min-height: 100px;
+}
+#car .car-wrap .car_con .pro ul {
+  width: 1180px;
+  height: 100px;
+  padding-top: 20px;
+  background-color: #fff;
+}
+#car .car-wrap .car_con .pro ul li {
+  float: left;
+  text-align: center;
+}
+#car .car-wrap .car_con .pro ul li input {
+  float: left;
+  margin: 30px 10px;
+}
+#car .car-wrap .car_con .pro ul li a {
+  text-align: center;
+}
+#car .car-wrap .car_con .pro ul li a img {
+  width: 78px;
+  height: 78px;
+}
+#car .car-wrap .car_con .pro ul li h2 {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 10px 0;
+}
+#car .car-wrap .car_con .pro ul li p {
+  font-size: 16px;
+  line-height: 20px;
+  color: #666;
+}
+#car .car-wrap .car_con .pro ul li strong {
+  font-size: 16px;
+  line-height: 40px;
+}
+#car .car-wrap .car_con .pro ul li div {
+  width: 120px;
+  height: 34px;
+  margin: 10px auto;
+}
+#car .car-wrap .car_con .pro ul li .num {
+  width: 54px;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin: -32px 32px;
+}
+#car .car-wrap .car_con .pro ul li .jian {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+#car .car-wrap .car_con .pro ul li .jia {
+  float: right;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(1) {
+  width: 207px;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(2) {
+  width: 320px;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(3) {
+  width: 140px;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(4) {
+  width: 230px;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(5) {
+  width: 140px;
+}
+#car .car-wrap .car_con .pro ul li:nth-child(6) {
+  width: 140px;
+}
+#car .car-wrap .car_bot {
+  width: 1180px;
+  height: 60px;
+  padding-top: 30px;
+  background-color: #ddd;
+}
+#car .car-wrap .car_bot .bot_l {
+  float: left;
+}
+#car .car-wrap .car_bot .bot_l label {
+  font-size: 14px;
+  margin-right: 15px;
+}
+#car .car-wrap .car_bot .bot_l label input {
+  margin: 10px 10px;
+}
+#car .car-wrap .car_bot .bot_l a {
+  font-size: 14px;
+}
+#car .car-wrap .car_bot .bot_r {
+  float: right;
+}
+#car .car-wrap .car_bot .bot_r span {
+  font-size: 20px;
+  margin-right: 20px;
+}
+#car .car-wrap .car_bot .bot_r strong {
+  font-size: 20px;
+  color: #e73743;
+  margin-right: 15px;
+}
+#car .car-wrap .car_bot .bot_r button {
+  width: 120px;
+  height: 36px;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  background-color: #e73743;
+  margin-right: 5px;
+}

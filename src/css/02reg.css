@@ -1,0 +1,81 @@
+@charset "utf-8";
+.reg-wrap {
+  width: 1180px;
+  height: 440px;
+  margin: 20px auto;
+  background: url(../images/01ban.jpeg);
+}
+.reg-wrap .regBox {
+  width: 500px;
+  height: 400px;
+  padding: 10px 0 0 30px;
+  background-color: rgba(221, 221, 221, 0.9);
+  float: right;
+  margin: 20px 130px 0 0;
+}
+.reg-wrap .regBox label {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 40px;
+  text-align: right;
+  line-height: 40px;
+  font-size: 18px;
+}
+.reg-wrap .regBox input {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 5px ;
+  padding: 5px;
+}
+.reg-wrap .regBox p {
+  width: 320px;
+  padding-left: 11px;
+  height: 60px;
+  font-size: 18px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.reg-wrap .regBox p i {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 40px;
+}
+.reg-wrap .regBox .regma {
+  float: right;
+  margin-right: 5px;
+  width: 150px;
+  height: 45px;
+  background-color: #ccc;
+}
+.reg-wrap .regBox #checkbox {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 10px;
+}
+.reg-wrap .regBox .regBtn {
+  width: 200px;
+  height: 45px;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  background-color: #e73734;
+  margin: 5px 110px;
+  cursor: pointer;
+}
+.reg-wrap .regBox span {
+  display: block;
+  float: right;
+  margin-right: 5px;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+}

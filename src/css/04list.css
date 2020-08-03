@@ -1,0 +1,129 @@
+@charset "utf-8";
+#list {
+  border-top: 1px solid #ccc;
+  background-color: #eee;
+  min-height: 1000px;
+}
+#list .list-wrap {
+  width: 1180px;
+  margin: 0 auto;
+}
+#list .list-wrap h2 {
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  margin: 10px 0 10px 10px;
+}
+#list .list-wrap .listBox {
+  width: 1180px;
+  padding-top: 10px;
+}
+#list .list-wrap .listBox .sort {
+  width: 1180px;
+  height: 30px;
+  margin-bottom: 30px;
+}
+#list .list-wrap .listBox .sort span {
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0 10px;
+  float: left;
+}
+#list .list-wrap .listBox .sort ul {
+  float: left;
+}
+#list .list-wrap .listBox .sort ul li:first-child {
+  border-left: 1px solid #ccc;
+}
+#list .list-wrap .listBox .sort ul li {
+  float: left;
+  width: 84px;
+  height: 28px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-left: none;
+  text-align: center;
+}
+#list .list-wrap .listBox .sort ul li a {
+  font-size: 14px;
+  line-height: 28px;
+}
+#list .list-wrap .listBox .sort label {
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0 10px;
+}
+#list .list-wrap .listBox .sort label input {
+  vertical-align: middle;
+}
+#list .list-wrap .listBox .goodslist {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  width: 1180px;
+}
+#list .list-wrap .listBox .goodslist ul li {
+  background-color: #fff;
+  float: left;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: 264px;
+  height: 410px;
+  padding: 15px;
+}
+#list .list-wrap .listBox .goodslist ul li:hover {
+  border-bottom: 1px solid #e73743;
+}
+#list .list-wrap .listBox .goodslist ul li img {
+  width: 239px;
+  height: 239px;
+  margin: 0 0 15px 10px;
+}
+#list .list-wrap .listBox .goodslist ul li h3 {
+  width: 239px;
+  height: 42px;
+  font-size: 14px;
+}
+#list .list-wrap .listBox .goodslist ul li p {
+  width: 239px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 26px;
+}
+#list .list-wrap .listBox .goodslist ul li div {
+  width: 239px;
+  height: 40px;
+  margin: 10px 0 10px 0;
+}
+#list .list-wrap .listBox .goodslist ul li div span {
+  font-size: 26px;
+  color: #e73743;
+}
+#list .list-wrap .listBox .goodslist ul li div del {
+  font-size: 14px;
+  color: #666;
+}
+#list .list-wrap .listBox .goodslist ul li div button {
+  margin-left: 30px;
+  border: none;
+}
+#list .list-wrap .listBox .goodslist ul li em {
+  font-size: 12px;
+  color: #666;
+}
+#list .page {
+  width: 1180px;
+  height: 30px;
+  margin: 15px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#list .page a {
+  display: block;
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #ccc;
+  color: #666;
+  text-align: center;
+}
