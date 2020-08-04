@@ -7,24 +7,36 @@ import {
     $
 } from './moulib/regmod.js'
 
-$ajaxpromise({
-    url: 'http://localhost/haitao/php/w_getdata.php',
 
+let oPage = $('.page');
+console.log(oPage);
+oPage.onclick = function (ev) {
+    var ev = ev || window.event;
+    $('.pageact span').innerHTML = ev.target.innerHTML;
+    let pindex = $('.pageact span').innerHTML;
+
+}
+
+$ajaxpromise({
+    // url: 'http://localhost/haitao/php/w_getdata.php',
+    url: 'http://localhost/haitao/php/w_listdata.php',
+    data: {
+        page:2
+    }
 }).then(function (data) {
     console.log(JSON.parse(data));
     let res = JSON.parse(data);
-   
+
     let prisheng = [];
-    let prisid = [];           
+    let prisid = [];
     let priobj = {
     }
     let str = '';
     for (let i = 0; i < res.length; i++) {
 
         prisheng.push(res[i].price);
-        priobj[i]=prisheng[i];
-
-            str += `
+        priobj[i] = prisheng[i];
+        str += `
             <li>
                 <a href="./w_detail.html?id=${res[i].sid}">
                     <img src="" class='lazy' alt="" data-src="${res[i].url}">
@@ -38,12 +50,9 @@ $ajaxpromise({
                 </a>
             </li>
             `;
-        }
-              
+    }
+
     document.querySelector('.goodslist ul').innerHTML = str;
-
-   
-
 
 
     // 懒加载
@@ -62,9 +71,6 @@ $ajaxpromise({
     }
 
     // 排序
-
-
-
 
 })
 

@@ -79,8 +79,25 @@ window.onscroll = function () {
         $('.topho-wrap').style.display = 'none';
         $('.bactop').style.display = 'none';
         $('.floor').style.display = 'none';
-
     }
+    // 楼梯变色
+    let oflis= $('.floor ul').children;
+    let odays = $('.day-wrap',true);
+    // console.log(odays);
+    for(let i=0;i<oflis.length;i++){
+
+        let topdoc =document.documentElement.scrollTop || document.body.scrollTop;
+        let eleheight = $('#mode1').offsetHeight;
+       
+        if( topdoc > odays[i].offsetTop - eleheight/2){
+            for(let j=0;j<oflis.length;j++){
+                oflis[j].className=''; 
+            }
+            oflis[i].className='liact';
+            // return false;
+        }
+    }
+
     // 回到顶部
     $('.bactop').onclick = () => {
         let timer = setInterval(() => {
@@ -124,19 +141,6 @@ $('.list').onmouseover = function () {
 $('.list').onmouseout = function () {
     $('.list').style.display = 'none';
 }
-
-// 鼠标滑过 底边框变红色
-// $('.con').onmouseover = function (ev) {
-//     var ev = ev || window.event;
-//     let allLi = ev.target.parentNode.children;
-//     if (ev.target.nodeName === "LI") {
-//         for (let i = 0; i < allLi.length; i++) {
-//             allLi[i].style.borderBottom = `1px solid #ccc`;
-//         }
-//         ev.target.style.borderBottom = `1px solid #e73743`;
-       
-//     }
-// }
 
 // 轮播图
 

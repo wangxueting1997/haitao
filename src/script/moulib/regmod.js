@@ -69,6 +69,7 @@ function objtostring(obj) {
     return arr.join('&')
 }
 
+
 function $(selector, all) {
     if (!all) {
         return document.querySelector(selector); //单个
@@ -102,5 +103,5 @@ export{
     $ajaxpromise,
     objtostring,
     $,
-    cookie    
+    cookie,
 }

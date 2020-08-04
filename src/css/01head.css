@@ -19,6 +19,9 @@
   font-size: 14px;
   line-height: 40px;
 }
+.floor ul .liact {
+  background-color: #ec6762;
+}
 .bactop {
   display: none;
   position: fixed;
