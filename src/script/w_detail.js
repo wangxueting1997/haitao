@@ -71,15 +71,20 @@ $('.gouBtn').onclick = function () {
         cookie.set('cookienum', arrnum.toString(), 7);
     }
     alert('成功加入购物车');
-
 }
 
 // jia jian 数量的加减
 $('.jia').onclick = function () {
     $('.count').value++;
+    if ( $('.count').value >= 999) {
+        $('.count').value = 999;
+   }
 }
 $('.jian').onclick = function () {
     $('.count').value--;
+    if ( $('.count').value <= 1) {
+         $('.count').value = 1;
+    }
 }
 
 // 数量框不能输数字以外的字符   
