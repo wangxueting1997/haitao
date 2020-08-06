@@ -3,8 +3,36 @@
 import {
     $ajaxpromise,
     objtostring,
-    $
+    $,
+    cookie
 } from './moulib/regmod.js'
+
+// 获取cookie
+let allA = $('.head_l').children;
+function quit() {    
+    allA[1].style.display = 'block';
+    allA[2].style.display = 'block';
+    allA[3].style.display = 'none';
+    allA[4].style.display = 'none';
+}
+if (cookie.get('islogin')) {
+    allA[1].style.display = 'none';
+    allA[2].style.display = 'none';
+    allA[3].style.display = 'block';
+    allA[4].style.display = 'block';
+
+    allA[3].innerHTML += cookie.get('username');
+
+} else {
+    quit();
+}
+
+allA[4].onclick = function () {
+    // cookie.set('islogin', false);
+    cookie.remove('islogin');
+    quit();
+}
+
 
 // 获取数据渲染
 $ajaxpromise({
@@ -81,19 +109,19 @@ window.onscroll = function () {
         $('.floor').style.display = 'none';
     }
     // 楼梯变色
-    let oflis= $('.floor ul').children;
-    let odays = $('.day-wrap',true);
+    let oflis = $('.floor ul').children;
+    let odays = $('.day-wrap', true);
     // console.log(odays);
-    for(let i=0;i<oflis.length;i++){
+    for (let i = 0; i < oflis.length; i++) {
 
-        let topdoc =document.documentElement.scrollTop || document.body.scrollTop;
+        let topdoc = document.documentElement.scrollTop || document.body.scrollTop;
         let eleheight = $('#mode1').offsetHeight;
-       
-        if( topdoc > odays[i].offsetTop - eleheight/2){
-            for(let j=0;j<oflis.length;j++){
-                oflis[j].className=''; 
+
+        if (topdoc > odays[i].offsetTop - eleheight / 2) {
+            for (let j = 0; j < oflis.length; j++) {
+                oflis[j].className = '';
             }
-            oflis[i].className='liact';
+            oflis[i].className = 'liact';
             // return false;
         }
     }

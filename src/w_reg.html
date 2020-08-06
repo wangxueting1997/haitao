@@ -57,29 +57,26 @@
     <div class="reg-wrap">
         <div class="regBox">
             <form action="" method="">
-                <label for="username">用户名： </label><input type="text" name="username"
-                    class="username"><span>name</span><br>
-                <label for="userpass">密码： </label><input type="text" name="userpass"
-                    class="userpass"><span>pass</span><br>
-                <label for="repass">确认密码： </label><input type="text" name="repass"
-                    class="repass"><span>repass</span><br>
+                <label for="username">用户名： </label>
+                <input type="text" name="username" class="username" placeholder="字母数字 6-14">
+                <span></span><br>
+                <label for="userpass">密码： </label>
+                <input type="password" name="userpass" class="userpass" placeholder="字母数字特殊字符 6-12">
+                <span>pass</span><br>
+                <label for="repass">确认密码： </label>
+                <input type="password" name="repass" class="repass" placeholder="和密码保持一致">
+                <span>repass</span><br>
                 <p class="safe">安全程度：
                     <i>弱</i>
                     <i>中</i>
                     <i>强</i>
                 </p>
-                <label for="phone">电话号码： </label><input type="text" class="phone" name="phone"><span>phone</span><br>
-                <label for="surema">验证码： </label><input type="text" class="surema" name="surema">
+                <label for="phone">电话号码： </label><input type="text" class="phone" name="phone" placeholder="电话号码 11位"><span>phone</span><br>
+                <label for="surema">验证码： </label><input type="text" class="surema" name="surema" placeholder="验证码 5位">
                 <div class="regma"></div>
                 <span></span><br>
                 <input type="checkbox" name="checkbox" id="checkbox"><em>同意协议</em><br>
-
-                <!-- <input type="submit" class="regBtn" value="同意协议并注册"> -->
-
-                <!-- <a href="./w_login.html"> -->
                 <input type="button" value="同意协议并注册" class="regBtn ">
-                <!-- <button class="regBtn ">同意协议并注册</button> -->
-                <!-- </a> -->
             </form>
         </div>
     </div>

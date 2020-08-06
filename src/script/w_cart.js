@@ -18,9 +18,8 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
     // 先初始化总价，获得渲染内容的爸爸oPro
     let prosum = 0;
     let oPro = $('.pro');
-    let allchoose = $('#allchoose');
-
-    // 一、点击全选按钮后渲染部分的按钮也都选
+    let allchoose = $('#allchoose');  
+    // 点击全选按钮后渲染部分的按钮也都选
     allchoose.onclick = function (ev) {
         var ev = ev || window.event;
         let prochecks = $('.prochoose', true);
@@ -43,8 +42,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
             $('.sumprice').innerHTML = '￥' + prosum;
         }
     }
-
-    // 二、渲染出来每条商品记录框的 点击事件 -- 事件委托
+    // 渲染出来每条商品记录框的 点击事件 -- 事件委托
     // 包括：数量加减、输入框数量变化、删除功能、及对应的cookie变化
     oPro.onclick = function (ev) {
         // console.log(ev.target);
@@ -55,7 +53,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
         var ev = ev || window.event;
         let numpar = ev.target.parentNode;
         let coulsid = ev.target.parentNode.parentNode.parentNode.className;
-        // 1、数量加
+        // 数量加
         if (ev.target.className === 'jia') {
             numpar.children[2].value++;
             if (numpar.children[2].value >= 999) {
@@ -64,6 +62,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
             let index = arrsid.indexOf(coulsid);
             arrnum[index] = parseInt(numpar.children[2].value);
             cookie.set('cookienum', arrnum.toString(), 7);
+            // let alldanjia = $('.danjia', true);
             // 因为数量变化引起的 这个商品的总价 和 所有商品的总价 的变化
             proallpri[index].innerHTML = (alldanjia[index].innerHTML) * arrnum[index];
             // 本条商品记录为选中状态 才显示到总价的框里
@@ -74,7 +73,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
                 prosum += parseFloat((alldanjia[index].innerHTML));
             }
         }
-        // 2、数量减  和数量加同理
+        // 数量减  和数量加同理
         if (ev.target.className === 'jian') {
             numpar.children[2].value--;
             if (numpar.children[2].value <= 1) {
@@ -97,7 +96,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
             }
 
         }
-        // 3、数量输入框
+        // 数量输入框
         if (ev.target.className === 'num') {
             let numtar = ev.target;
             // 保存数量输入框 变化前的值
@@ -113,21 +112,23 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
                 let index = arrsid.indexOf(coulsid);
                 arrnum[index] = parseInt(numpar.children[2].value);
                 cookie.set('cookienum', arrnum.toString(), 7);
+                // let alldanjia = $('.danjia', true);
                 proallpri[index].innerHTML = (alldanjia[index].innerHTML) * arrnum[index];
 
-                // 当前数量框的商品被选中时，要先减去 旧数量对应的金额加上选中数量框*单价的金额
-                // 下面没有选中的时候，先等于这条商品现在的价格，要和后面点击复选框事件对应，下面点击事件里还有金额变化
+
                 if (allinputs[index].checked) {
                     prosum -= parseFloat((alldanjia[index].innerHTML) * oldnumval);
                     prosum += parseFloat((alldanjia[index].innerHTML) * arrnum[index]);
                     $('.sumprice').innerHTML = '￥' + prosum;
                 } else {
+                    // prosum = parseFloat((alldanjia[index].innerHTML) * oldnumval)
+                    // prosum -= parseFloat((alldanjia[index].innerHTML) * oldnumval);
                     prosum = 0;
                     prosum += parseFloat((alldanjia[index].innerHTML) * arrnum[index]);
                 }
             }
         }
-        ///4、删除本条商品记录
+        // 删除本条商品记录
         if (ev.target.className === 'delproul') {
             let delpar = ev.target.parentNode.parentNode;
 
@@ -139,33 +140,32 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
             cookie.set('cookiesid', arrsid.toString(), 7);
             cookie.set('cookienum', arrnum.toString(), 7);
 
-            // 删除之后 arrnum是自动变化了，元素索引对应要重新获取 新的元素类数组，再根据索引做金额变化
-            let newallinputs = $('.prochoose', true);
-            let newalldanjia = $('.danjia', true);
+            let newallinputs = $('.prochoose',true);
+            let newalldanjia = $('.danjia',true);
 
             if (allinputs[delindex].checked) {
-                prosum = parseFloat($('.sumprice').innerHTML.substring(1)) - (proallpri[delindex].innerHTML);
+                prosum = parseFloat($('.sumprice').innerHTML.substring(1)) - (proallpri[delindex].innerHTML);                
             } else {
-                prosum = 0;
+                prosum=0;
                 for (let i = 0; i < newallinputs.length; i++) {
-                    if (newallinputs[i].checked) {
-                        prosum += (newalldanjia[i].innerHTML) * arrnum[i];
+                    if(newallinputs[i].checked){
+                        prosum += (newalldanjia[i].innerHTML)*arrnum[i];
                     }
                 }
             }
-            // 如果删除之后剩下的全选了，那么全选按钮也要选中，根据金额总价作比较来判断的
-            let newsumpri = 0;
-            for (let j = 0; j < arrnum.length; j++) {
-                newsumpri += (newalldanjia[j].innerHTML) * arrnum[j];
+            // 如果删除之后剩下的全选了，那么全选按钮也要选中
+            let newsumpri=0;
+            for(let j=0;j<arrnum.length;j++){
+                newsumpri += (newalldanjia[j].innerHTML)*arrnum[j];
             }
             console.log(newsumpri);
             console.log(prosum);
-            if (prosum === newsumpri) {
-                allchoose.checked = true;
+            if(prosum === newsumpri){
+                allchoose.checked=true;
             }
             $('.sumprice').innerHTML = '￥' + prosum;
         }
-        // 5、点击复选框按钮 
+        // 点击按钮 和全选之间的关联    
         if (ev.target.className === 'prochoose') {
             // 单个按钮和全选的关系
             let allflag = true;
@@ -204,7 +204,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
     }
 }
 
-//三、渲染部分，获得全部数据，遍历数据，sid作比较找到那一条数据 字符串拼接
+//渲染部分，获得全部数据，遍历数据，sid作比较找到那一条数据 字符串拼接
 function renderCoo(sid, num) {
     $ajaxpromise({
         url: 'http://localhost/haitao/php/w_getdata.php'

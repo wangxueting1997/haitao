@@ -4,15 +4,24 @@
 import {
     $ajaxpromise,
     objtostring,
-    $
+    $,
+    cookie
 } from './moulib/regmod.js';
 
 let username = $('.username');
 let userpass = $('.userpass');
-let repass = $('.repass');
-let surema = $('.surema');
 let regBtn = $('.regBtn');
-let oSpans = document.querySelectorAll('span');
+
+let checkrem = $('#checkbox');
+console.log(checkrem);
+
+if(cookie.get('username')){
+    username.value=cookie.get('username');
+    if(cookie.get('userpass')){
+        userpass.value=cookie.get('userpass');
+    }
+}
+
 
 regBtn.onclick = function () {
     $ajaxpromise({
@@ -24,10 +33,19 @@ regBtn.onclick = function () {
         type: 'post'
     }).then(function (d) {
         if (d) {
+            if (checkrem.checked) {
+                cookie.set('username', username.value, 7);
+                cookie.set('userpass', userpass.value, 7);
+            } else {
+                cookie.set('username', username.value, 7);
+                cookie.remove('userpass');
+            }
+            document.cookie = `islogin=true;path=/`;
+
             alert('登录成功');
-            location.href='http://localhost/haitao/src/w_head.html';
+            location.href = 'http://localhost/haitao/src/w_head.html';
         } else {
-            alert('请重新登录');           
+            alert('请重新登录');
         }
     })
 }

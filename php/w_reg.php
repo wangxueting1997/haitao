@@ -23,18 +23,7 @@
         $insertUser = "INSERT INTO wreg VALUES(null,'$username','$userpass','$repass','$phone')";
         $res1 = $conn->query($insertUser);
         
-        if($res1){
-            // echo 'alert("注册成功");location.href="http://localhost/haitao/src/w_login.html";';
-            // header('location:http://localhost/haitao/src/w_login.html');
-            // echo '<script>alert("注册成功");</script>';
-            // echo 'alert("注册成功");';
-            echo true;
-
-        }
-        else{
-            // header('location:http://localhost/haitao/src/w_reg.html');
-            echo false;
-        }
+       
 
     }
 
