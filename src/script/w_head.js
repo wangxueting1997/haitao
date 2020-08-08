@@ -36,7 +36,8 @@ allA[4].onclick = function () {
 
 // 获取数据渲染
 $ajaxpromise({
-    url: 'http://localhost/haitao/php/w_getdata.php',
+    // url: 'http://localhost/haitao/php/w_getdata.php'
+    url: 'http://10.31.163.85/haitao/php/w_getdata.php'
 
 }).then(function (data) {
     // console.log(JSON.parse(data));

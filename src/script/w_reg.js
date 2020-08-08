@@ -39,7 +39,8 @@ username.onblur = function () {
     // 满足输入条件后端查询用户名是否存在
     if (userflag) {
         $ajaxpromise({
-            url: `http://localhost/haitao/php/w_reg.php`,
+            // url: `http://localhost/haitao/php/w_reg.php`,
+            url:'http://10.31.163.85/haitao/php/w_reg.php',
             data: {
                 username: username.value
             },
@@ -173,7 +174,9 @@ function YZM(yznum) {
     return yzm;
 }
 regma.innerHTML = YZM(5);
-
+regma.onclick=function(){
+    regma.innerHTML = YZM(5);
+}
 let yzmflag = true;
 surema.onblur = function () {
     if (this.value === regma.innerHTML) {
@@ -202,7 +205,8 @@ regBtn.onclick = function () {
     // alert(1)
     if (userflag && passflag && repassflag && phoneflag && yzmflag && checkflag) {
         $ajaxpromise({
-            url: `http://localhost/haitao/php/w_reg.php`,
+            // url: `http://localhost/haitao/php/w_reg.php`,
+            url:'http://10.31.163.85/haitao/php/w_reg.php',
             data: {
                 username: username.value,
                 userpass: userpass.value,
@@ -213,7 +217,7 @@ regBtn.onclick = function () {
             type: 'post'
         }).then(function () {
             alert('注册成功');
-            location.href = 'http://localhost/haitao/src/w_login.html';
+            location.href = 'http://10.31.163.85/haitao/src/w_login.html';
         })
 
     }

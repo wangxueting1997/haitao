@@ -106,7 +106,7 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
                 let reg1 = /^\d{1,3}$/;
                 if (!(reg1.test(numtar.value))) {
                     alert('请输入999以内的数字');
-                    numtar.value = '1';
+                    numtar.value = oldnumval;
                     numtar.focus();
                 }
 
@@ -207,7 +207,8 @@ if (cookie.get('cookiesid') && cookie.get('cookienum')) {
 //三、渲染部分，获得全部数据，遍历数据，sid作比较找到那一条数据 字符串拼接
 function renderCoo(sid, num) {
     $ajaxpromise({
-        url: 'http://localhost/haitao/php/w_getdata.php'
+        // url: 'http://localhost/haitao/php/w_getdata.php'
+        url:'http://10.31.163.85/haitao/php/w_getdata.php'
     }).then(function (data) {
         let alldata = JSON.parse(data);
         // console.log(alldata);

@@ -14,21 +14,23 @@ let next = null;
 
 let oPage = $('.page');
 
+// bug:排序要等懒加载结束，第一次加载排序只有升序或者降序，刷新之后才正常
+// 代码问题：相同的排序代码 写了整整两遍，，，因为元素获取要等渲染以后 then 里面才能获得
+
 window.onload = function () {
     $ajaxpromise({
         // url: 'http://localhost/haitao/php/w_getdata.php',
-        url: 'http://localhost/haitao/php/w_listdata.php',
+        // url: 'http://localhost/haitao/php/w_listdata.php',
+        url: 'http://10.31.163.85/haitao/php/w_listdata.php',
 
     }).then(function (data) {
         let res = JSON.parse(data);
-
         let str = '';
         for (let i = 0; i < res.length; i++) {
-
             str += `
             <li class="listlis">
                 <a href="./w_detail.html?id=${res[i].sid}">
-                    <img src="" class='lazy' alt="" data-src="${res[i].url}">
+                    <img src="${res[i].url}" class='lazy' alt="" data-src="${res[i].url}">
                     <h3>${res[i].title}</h3>
                     <p>${res[i].goodsadd}</p>
                     <div>
@@ -41,7 +43,7 @@ window.onload = function () {
             `;
         }
         $('.goodslist ul').innerHTML = str;
-        lazy();
+        // lazy();
 
         function lazy() {
             let allimg = document.querySelectorAll('img');
@@ -84,35 +86,35 @@ window.onload = function () {
         }
         // 升序
         $('.prisheng').onclick = function () {
-            for (var i = 0; i < array.length -1; i++) {
-                for (var j = 0; j < array.length-i-1; j++) {
+            for (var i = 0; i < array.length - 1; i++) {
+                for (var j = 0; j < array.length - i - 1; j++) {
                     prev = parseFloat(priobj[array[j].innerHTML]);
                     next = parseFloat(priobj[array[j + 1].innerHTML]);
-                    if (prev > next) {                        
+                    if (prev > next) {
                         let temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                     }
                 }
             }
-            for (let k = 0; k < array.length ; k++) {
+            for (let k = 0; k < array.length; k++) {
                 $('.goodslist ul').appendChild(array[k]);
             }
         }
         // 降序
         $('.prijiang').onclick = function () {
-            for (var i = 0; i < array.length -1; i++) {
-                for (var j = 0; j < array.length-i-1; j++) {
+            for (var i = 0; i < array.length - 1; i++) {
+                for (var j = 0; j < array.length - i - 1; j++) {
                     prev = parseFloat(priobj[array[j].innerHTML]);
                     next = parseFloat(priobj[array[j + 1].innerHTML]);
-                    if (prev < next) {                        
+                    if (prev < next) {
                         let temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                     }
                 }
             }
-            for (let k = 0; k < array.length ; k++) {
+            for (let k = 0; k < array.length; k++) {
                 $('.goodslist ul').appendChild(array[k]);
             }
         }
@@ -125,7 +127,9 @@ oPage.onclick = function (ev) {
 
     $ajaxpromise({
         // url: 'http://localhost/haitao/php/w_getdata.php',
-        url: 'http://localhost/haitao/php/w_listdata.php',
+        // url: 'http://localhost/haitao/php/w_listdata.php',
+        url: 'http://10.31.163.85/haitao/php/w_listdata.php',
+
         data: {
             page: $('.pageact span').innerHTML
         }
@@ -149,65 +153,65 @@ oPage.onclick = function (ev) {
             `;
         }
         $('.goodslist ul').innerHTML = str;
-       
 
-       // 排序
-       array_default = [];
-       array = [];
-       prev = null;
-       next = null;
 
-       let allLis = $('.listlis', true);
-       let allprice = $('.listlis .price', true);
-       let priobj = [];
+        // 排序
+        array_default = [];
+        array = [];
+        prev = null;
+        next = null;
 
-       for (let k = 0; k < allLis.length; k++) {
-           array[k] = allLis[k];
-           array_default[k] = allLis[k];
-       }
-       for (let j = 0; j < array.length; j++) {
-           priobj[array[j].innerHTML] = allprice[j].innerHTML.substring(1);
-       }
-       
-       // 默认情况下
-       $('.arrdefault').onclick = function () {
-           for (let j = 0; j < array_default.length; j++) {
-               $('.goodslist ul').appendChild(array_default[j]);
-           }
-       }
-       // 升序
-       $('.prisheng').onclick = function () {
-           for (var i = 0; i < array.length -1; i++) {
-               for (var j = 0; j < array.length-i-1; j++) {
-                   prev = parseFloat(priobj[array[j].innerHTML]);
-                   next = parseFloat(priobj[array[j + 1].innerHTML]);
-                   if (prev > next) {                        
-                       let temp = array[j];
-                       array[j] = array[j + 1];
-                       array[j + 1] = temp;
-                   }
-               }
-           }
-           for (let k = 0; k < array.length ; k++) {
-               $('.goodslist ul').appendChild(array[k]);
-           }
-       }
-       $('.prijiang').onclick = function () {
-        for (var i = 0; i < array.length -1; i++) {
-            for (var j = 0; j < array.length-i-1; j++) {
-                prev = parseFloat(priobj[array[j].innerHTML]);
-                next = parseFloat(priobj[array[j + 1].innerHTML]);
-                if (prev < next) {                        
-                    let temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
+        let allLis = $('.listlis', true);
+        let allprice = $('.listlis .price', true);
+        let priobj = [];
+
+        for (let k = 0; k < allLis.length; k++) {
+            array[k] = allLis[k];
+            array_default[k] = allLis[k];
+        }
+        for (let j = 0; j < array.length; j++) {
+            priobj[array[j].innerHTML] = allprice[j].innerHTML.substring(1);
+        }
+
+        // 默认情况下
+        $('.arrdefault').onclick = function () {
+            for (let j = 0; j < array_default.length; j++) {
+                $('.goodslist ul').appendChild(array_default[j]);
             }
         }
-        for (let k = 0; k < array.length ; k++) {
-            $('.goodslist ul').appendChild(array[k]);
+        // 升序
+        $('.prisheng').onclick = function () {
+            for (var i = 0; i < array.length - 1; i++) {
+                for (var j = 0; j < array.length - i - 1; j++) {
+                    prev = parseFloat(priobj[array[j].innerHTML]);
+                    next = parseFloat(priobj[array[j + 1].innerHTML]);
+                    if (prev > next) {
+                        let temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            for (let k = 0; k < array.length; k++) {
+                $('.goodslist ul').appendChild(array[k]);
+            }
         }
-    }
+        $('.prijiang').onclick = function () {
+            for (var i = 0; i < array.length - 1; i++) {
+                for (var j = 0; j < array.length - i - 1; j++) {
+                    prev = parseFloat(priobj[array[j].innerHTML]);
+                    next = parseFloat(priobj[array[j + 1].innerHTML]);
+                    if (prev < next) {
+                        let temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            for (let k = 0; k < array.length; k++) {
+                $('.goodslist ul').appendChild(array[k]);
+            }
+        }
 
     });
 

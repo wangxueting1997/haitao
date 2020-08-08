@@ -25,7 +25,8 @@ if(cookie.get('username')){
 
 regBtn.onclick = function () {
     $ajaxpromise({
-        url: `http://localhost/haitao/php/w_login.php`,
+        // url: `http://localhost/haitao/php/w_login.php`,
+        url:'http://10.31.163.85/haitao/php/w_login.php',
         data: {
             username: username.value,
             userpass: userpass.value,
@@ -42,8 +43,9 @@ regBtn.onclick = function () {
             }
             document.cookie = `islogin=true;path=/`;
 
-            alert('登录成功');
-            location.href = 'http://localhost/haitao/src/w_head.html';
+            // alert('登录成功');
+            // location.href = 'http://localhost/haitao/src/w_head.html';
+            location.href='http://10.31.163.85/haitao/src/w_head.html';
         } else {
             alert('请重新登录');
         }

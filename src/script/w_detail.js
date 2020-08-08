@@ -12,7 +12,8 @@ import {
 let sid = location.search.split('?')[1].split('=')[1];
 // console.log(sid);
 $ajaxpromise({
-    url: 'http://localhost/haitao/php/w_detail.php',
+    // url: 'http://localhost/haitao/php/w_detail.php',
+    url:'http://10.31.163.85/haitao/php/w_detail.php',
     data: {
         sid: sid
     }
